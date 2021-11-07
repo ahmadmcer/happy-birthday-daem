@@ -1,6 +1,7 @@
 // Get Data
 const box = document.getElementById('box')
 const pin = document.getElementById('pin')
+const giftCard = document.getElementById('gift-card')
 const stars = document.getElementById('stars')
 
 const happyBirthday = new Audio('assets/audio/happy_birthday.mp3')
@@ -15,8 +16,10 @@ function pinClick() {
   if (i >= 2) {
     box.style.bottom = '100%'
 
-    playSong()
-    setTimeout(function () {
+    happyBirthday.play()
+
+    setTimeout(function() {
+      openGiftCard()
       poem.play()
     }, 84000)
   } else {
@@ -25,9 +28,19 @@ function pinClick() {
 }
 
 
-// Play Song
-function playSong() {
-  happyBirthday.play()
+// Gift Card
+function openGiftCard() {
+  giftCard.style.display = 'block'
+  setTimeout(function() {
+    giftCard.style.opacity = '1'
+  }, 1)
+}
+
+function closeGiftCard() {
+  giftCard.style.opacity = '0'
+  setTimeout(function() {
+    giftCard.style.display = 'none'
+  }, 500)
 }
 
 
@@ -56,10 +69,10 @@ function createStars() {
     star.style.position = 'absolute'
     star.style.bottom = '-50%'
 
-    let randomPosition = getRandomArbitrary(0, 100)
-    star.style.left = Math.round(randomPosition) + '%'
+    let randomPosition = getRandomArbitrary(0, 50)
+    star.style.left = (Math.round(randomPosition) * 2) + '%'
 
-    let randomDuration = getRandomArbitrary(2, 5)
+    let randomDuration = getRandomArbitrary(1, 6)
     let fixDuration = Math.round(randomDuration * 100) / 100
     star.style.animationDuration = fixDuration + 's'
 
