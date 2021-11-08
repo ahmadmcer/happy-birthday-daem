@@ -1,6 +1,5 @@
 // Get Data
 const box = document.getElementById('box')
-const pin = document.getElementById('pin')
 const giftCard = document.getElementById('gift-card')
 const stars = document.getElementById('stars')
 
@@ -9,22 +8,26 @@ const poem = new Audio('assets/audio/poem.mp3')
 const audioStars = new Audio('assets/audio/sparkle.mp3')
 
 
-// Pin
-let i = 0
-
-function pinClick() {
-  if (i >= 2) {
-    box.style.bottom = '100%'
-
+// Ribbon Click
+let i = 1
+function ribbonClick() {
+  if (i < 3) {
+    i++
+  } else {
+    openBox()
     happyBirthday.play()
 
     setTimeout(function() {
       openGiftCard()
       poem.play()
     }, 84000)
-  } else {
-    i++
   }
+}
+
+
+// Open Box
+function openBox() {
+  box.style.top = '-100%'
 }
 
 
@@ -44,9 +47,8 @@ function closeGiftCard() {
 }
 
 
-// Stars
+// Move Star
 createStars()
-
 function moveStars() {
   for (let i = 0; i < stars.children.length; i++) {
     stars.children[i].classList.add('star-up')
@@ -55,32 +57,36 @@ function moveStars() {
   audioStars.play()
 
   setTimeout(function() {
-    removeStars()
+    destroyStars()
     createStars()
   }, 5000)
 }
 
+
+// Create Star
 function createStars() {
   for (let i = 1; i <= 100; i++) {
-    let star = document.createElement('i')
+    const star = document.createElement('i')
     star.className = 'fas fa-star fa-2x'
 
-    star.style.textShadow = '0 4px 4px hsla(0, 0%, 0%, .25)'
+    star.style.textShadow = 'var(--shadow-3d)'
     star.style.position = 'absolute'
     star.style.bottom = '-50%'
 
-    let randomPosition = getRandomArbitrary(0, 50)
+    const randomPosition = getRandomArbitrary(0, 50)
     star.style.left = (Math.round(randomPosition) * 2) + '%'
 
-    let randomDuration = getRandomArbitrary(1, 6)
-    let fixDuration = Math.round(randomDuration * 100) / 100
-    star.style.animationDuration = fixDuration + 's'
+    const randomDuration = getRandomArbitrary(1, 6)
+    const fixedDuration = Math.round(randomDuration * 100) / 100
+    star.style.animationDuration = fixedDuration + 's'
 
     stars.appendChild(star)
   }
 }
 
-function removeStars() {
+
+// Destroy Stars
+function destroyStars() {
   stars.innerHTML = '';
 }
 

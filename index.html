@@ -16,47 +16,48 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
   <div id="box" class="box">
-    <div id="pin" class="pin" onclick="pinClick()">
-      <i class="fas fa-certificate fa-10x"></i>
-    </div>
     <div class="tape-horizontal"></div>
     <div class="tape-vertical"></div>
+    <div class="ribbon" onclick="ribbonClick()"><img src="assets/image/ribbon_pink.svg"></img></div>
   </div>
+
+  <div class="background-container">
+    <div class="background">
+      <img src="assets/image/shine_background_pink.png">
+    </div>
+    <div id="stars" class="stars"></div>
+  </div>
+
+  <div class="content">
+    <img src="assets/image/daem_ganteng.jpg" onclick="moveStars()">
+    <h2>Happy Birthday!</h2>
+    <h1>daem</h1>
+  </div>
+
+  <div class="gift-card-open">
+    <button onclick="openGiftCard()">
+      <i class="fas fa-gift fa-2x"></i>
+    </button>
+  </div>
+
+  <div class="credit">
+    <a href="https://ahmadmcer.github.io/" target="_blank">
+      <img src="assets/image/amc_icon.png">
+    </a>
+  </div>
+
   <div id="gift-card" class="gift-card">
-    <button onclick="closeGiftCard()"><i class="fas fa-times fa-3x"></i></button>
     <p>
       Hello Daem, Happy Birthday!<br><br>
       I'm one of your fans. Thank you for the content you created. Keep working and don't give up. Unite the community with warmth. Stay humble and don't be arrogant. Happy birthday. Have a happy life.<br><br>
       Best regards,<br><br>
       AhmadMCer
+      <button onclick="closeGiftCard()"><i class="fas fa-times fa-3x fa-fw"></i></button>
     </p>
   </div>
-  <div class="border">
-    <div class="open-card">
-      <button onclick="openGiftCard()"><i class="fas fa-gift fa-3x"></i></button>
-    </div>
-    <div class="content">
-      <div class="image">
-        <img src="assets/image/profile.jpg" onclick="moveStars()">
-      </div>
-      <div class="text">
-        <h1>Happy Birthday</h1>
-        <h2>daem</h2>
-      </div>
-    </div>
-    <div class="link">
-      <a href="https://ahmadmcer.github.io/" target="_blank">
-        <img src="assets/image/amc_icon.png">
-      </a>
-    </div>
-    <div id="stars" class="stars"></div>
-    <div class="background-one">
-      <img src="assets/image/shine_background.png">
-    </div>
-    <div class="background-two"></div>
-  </div>
 
-  <script src="script.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
